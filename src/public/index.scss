@@ -3,12 +3,12 @@
  * Time：2017/7/27
  * Description：public
  */
-@import "../../libs/scss/reset";
+@import "../../libs/scss/normalize";
+@import "../../libs/scss/public";
 
 html,
 body,
-#root,
-.ant-layout {
+#root {
     height: 100%;
 }
 

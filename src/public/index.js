@@ -5,8 +5,8 @@
  */
 
 import axios from 'axios'
-import {hashHistory} from 'react-router'
-import {message} from 'antd'
+import { hashHistory } from 'react-router'
+import { message } from 'antd'
 
 export const axiosAjax = (type, url, params, fn) => {
     axios({

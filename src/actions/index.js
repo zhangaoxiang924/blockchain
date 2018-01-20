@@ -4,25 +4,22 @@
  * Description：index actions
  */
 
-import { hashHistory } from 'react-router'
-import { axiosAjax } from '../public/index'
-
 import {
-    LOGIN,
-    GAMELIST,
-    BREADCRUMB,
-    NAVIGATION
+    NEWSLIST
 } from '../constants/index'
 
-export const login = (email, password) => {
-    return (dispatch) => {
-        hashHistory.push('/')
+export const getNewsList = (ListArr) => {
+    return {
+        type: NEWSLIST,
+        ListArr
+    }
+    /* return (dispatch) => {
         axiosAjax('GET', '/api_login', {
             email: email,
             password: password
         }, function (data) {
-            // $.cookie('email', data.data.email)
-            // $.cookie('password', data.data.password)
+            Cookies.get('email', data.data.email)
+            Cookies.get('password', data.data.password)
             const actionData = data.data
             dispatch({
                 type: LOGIN,
@@ -30,32 +27,5 @@ export const login = (email, password) => {
             })
             hashHistory.push('/')
         })
-    }
-}
-
-export const gameList = () => {
-    return (dispatch) => {
-        axiosAjax('GET', '/api_game_list', {}, function (data) {
-            const actionData = data.data
-            dispatch({
-                type: GAMELIST,
-                actionData
-            })
-        })
-    }
-}
-
-export const breadcrumb = (arr) => {
-    return {
-        type: BREADCRUMB,
-        arr
-    }
-}
-
-export const navigation = (selectkey, openkey) => {
-    return {
-        type: NAVIGATION,
-        selectkey,
-        openkey
-    }
+    } */
 }

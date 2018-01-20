@@ -1,5 +1,5 @@
 const zhCN = {
-    'intl.hello': '你好',
-    'intl.name': '我的名字是 {name}'
+    attrOne: '你好',
+    attrTwo: '我的名字是 {name}'
 }
 export default zhCN

@@ -7,63 +7,89 @@
 import React, {Component} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
-import {Link, hashHistory} from 'react-router'
+import {string, object} from 'prop-types'
 import {injectIntl, FormattedMessage} from 'react-intl'
 
-import {breadcrumb, navigation} from '../../actions/index'
+import {
+    getNewsList
+} from '../../actions/index'
 import './index.scss'
-import menuData from '../../public/menuData'
-import logo from '../../public/img/logo.svg'
 
 class Main extends Component {
-    componentWillMount() {
-        this.checkLogin()
-        this.props.actions.breadcrumb([menuData[0].text])
-        this.props.actions.navigation(menuData[0].key)
+    state = {expanded: false}
+
+    static propTypes = {
+        model: object.isRequired,
+        title: string
     }
 
-    componentWillUpdate() {
-        this.checkLogin()
+    static defaultProps = {
+        model: {
+            id: 0
+        },
+        title: 'Your Name'
     }
 
-    checkLogin = () => {
-        hashHistory.push('/login')
+    handleClick = () => {
+        this.props.actions.getNewsList([
+            {
+                title: this.title.value,
+                time: this.time.value
+            }
+        ])
     }
 
     render() {
-        const props = this.props
-
         const {intl} = this.props
-        let tmp = intl.formatMessage({id: 'intl.name'}, {name: 'joe'})
-
+        let tmp = intl.formatMessage({id: 'attrTwo'}, {name: '重新命名的属性名称'})
         return <div>
+            <FormattedMessage
+                id="attrOne"
+                defaultMessage={'第一个默认信息'}
+            />,
+            <FormattedMessage
+                id="attrTwo"
+                defaultMessage={'第二个默认信息'}
+                values={{name: <b>{'123'}</b>}}
+            />
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
             {tmp}
-            <FormattedMessage
-                id="intl.hello"
-                defaultMessage={'hello'}/>,
-            <FormattedMessage
-                id="intl.name"
-                defaultMessage={`我是默认消息`}
-                values={{name: <b>{name}{props}{logo}</b>}}/>
-            <Link onClick={() => {
-                hashHistory.push()
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <button onClick={this.handleClick}>新闻列表</button>
+            <input type="text" ref={(ref) => {
+                this.title = ref
             }}/>
-            {props.children}
+            <input type="text" ref={(ref) => {
+                this.time = ref
+            }}/>
+            {this.props.children}
         </div>
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        loginInfo: state.loginInfo,
-        breadcrumbArr: state.breadcrumbArr,
-        navigationArr: state.navigationArr
+        newsList: state.newsList
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        actions: bindActionCreators({breadcrumb, navigation}, dispatch)
+        actions: bindActionCreators({getNewsList}, dispatch)
     }
 }
 

@@ -7,39 +7,30 @@
 import React, {Component} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
+import {Link, hashHistory} from 'react-router'
 
 import './index.scss'
-import {login} from '../../actions/index'
+import {getNewsList} from '../../actions/index'
 
 class Login extends Component {
-    handleSubmit = (e) => {
-        const This = this
-        e.preventDefault()
-        This.props.actions.login(This.username, This.password)
+    handleLink = () => {
+        hashHistory.push('/')
     }
 
     render() {
-        return <div className="login-wrap">
-            <input type="text" ref={(text) => {
-                this.username = text
-            }} placeholder="请输入账号"/>
-            <input type="password" ref={(pas) => {
-                this.password = pas
-            }} placeholder="请输入密码"/>
-            <button onClick={this.handleSubmit}>登录</button>
-        </div>
+        return <div className="login-wrap"><Link onClick={this.handleLink}>连接到首页</Link></div>
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        loginInfo: state.loginInfo
+        newsList: state.newsList
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        actions: bindActionCreators({login}, dispatch)
+        actions: bindActionCreators({getNewsList}, dispatch)
     }
 }
 
