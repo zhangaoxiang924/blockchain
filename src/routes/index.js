@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import { Route, IndexRoute } from 'react-router'
+import {Route, IndexRoute} from 'react-router'
 
 const rootRoutes = <div>
     <Route path="/" getComponent={(nextState, callback) => {
@@ -15,20 +15,25 @@ const rootRoutes = <div>
     }}>
         <IndexRoute getComponent={(nextState, callback) => {
             require.ensure([], (require) => {
-                callback(null, require('../containers/Enter').default)
-            }, 'Enter')
+                callback(null, require('../containers/Index').default)
+            }, 'Index')
         }}/>
-        <Route path='/enter' getComponent={(nextState, callback) => {
+        <Route path='/index' getComponent={(nextState, callback) => {
             require.ensure([], (require) => {
-                callback(null, require('../containers/Enter').default)
-            }, 'Enter')
+                callback(null, require('../containers/Index').default)
+            }, 'Index')
+        }}/>
+        <Route path='/personal' getComponent={(nextState, callback) => {
+            require.ensure([], (require) => {
+                callback(null, require('../containers/Personal').default)
+            }, 'Personal')
+        }}/>
+        <Route path='/market' getComponent={(nextState, callback) => {
+            require.ensure([], (require) => {
+                callback(null, require('../containers/Market').default)
+            }, 'Market')
         }}/>
     </Route>
-    <Route path='/login' getComponent={(nextState, callback) => {
-        require.ensure([], (require) => {
-            callback(null, require('../containers/Login').default)
-        }, 'Login')
-    }}/>
 </div>
 
 export default rootRoutes

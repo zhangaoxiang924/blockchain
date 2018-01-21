@@ -5,13 +5,32 @@
  */
 
 import {
-    NEWSLIST
+    HEADERROLLMSG
 } from '../constants/index'
 
-export const getNewsList = (ListArr) => {
+export const getHeaderRollMsg = () => {
     return {
-        type: NEWSLIST,
-        ListArr
+        type: HEADERROLLMSG,
+        rollMsg: [
+            {
+                name: 'BTC-比特币',
+                price: '￥82.00',
+                rate: '80%'
+            }, {
+                name: 'BTC-比特币',
+                price: '￥82.00',
+                rate: '80%'
+            }, {
+                name: 'BTC-比特币',
+                price: '￥82.00',
+                rate: '80%'
+            }, {
+                name: 'BTC-比特币',
+                price: '￥82.00',
+                rate: '80%'
+            }
+
+        ]
     }
     /* return (dispatch) => {
         axiosAjax('GET', '/api_login', {

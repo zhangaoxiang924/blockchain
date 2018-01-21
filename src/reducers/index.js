@@ -7,10 +7,10 @@
 import {combineReducers} from 'redux'
 import {routerReducer} from 'react-router-redux'
 
-import newsList from './newsList'
+import headerRollMsg from './headerRollMsg'
 
 const reducers = Object.assign({
-    newsList,
+    headerRollMsg,
     routing: routerReducer
 })
 

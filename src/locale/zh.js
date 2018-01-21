@@ -1,5 +1,6 @@
 const zhCN = {
-    attrOne: '你好',
-    attrTwo: '我的名字是 {name}'
+    'nav.index': '首页',
+    'nav.personal': '个人资料',
+    'nav.market': '行情'
 }
 export default zhCN

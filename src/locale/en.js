@@ -1,5 +1,6 @@
 const enUs = {
-    attrOne: 'hello',
-    attrTwo: 'my name is {name}'
+    'nav.index': 'index',
+    'nav.personal': 'personal',
+    'nav.market': 'market'
 }
 export default enUs

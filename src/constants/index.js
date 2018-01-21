@@ -4,5 +4,5 @@
  * Description：index constants
  */
 
-// 游戏列表
-export const NEWSLIST = 'news-list'
+// 头部滚动信息
+export const HEADERROLLMSG = 'header-roll-msg'
